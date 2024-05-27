@@ -39,7 +39,7 @@ exports.getSingleInvoice = async (req, res, next) => {
         const invoice = await Invoice.findById(req.params.id);
 
         if (!invoice) {
-            return next(new ErrorHandler('Tracking not found', 404));
+            return next(new ErrorHandler('Invoice not found', 404));
         }
 
         res.status(200).json({

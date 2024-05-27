@@ -34,7 +34,7 @@ exports.updateQuote = async (req, res, next) => {
         if (!quote) {
             return res.status(404).json({
                 success: false,
-                message: "Product not found"
+                message: "Quote not found"
             });
         }
 

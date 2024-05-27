@@ -39,7 +39,7 @@ exports.getSingleStatus = async (req, res, next) => {
         const status = await Status.findById(req.params.id);
 
         if (!status) {
-            return next(new ErrorHandler('Tracking not found', 404));
+            return next(new ErrorHandler('Status not found', 404));
         }
 
         res.status(200).json({
