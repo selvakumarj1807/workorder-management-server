@@ -1,7 +1,7 @@
-const sendToken = (vendor, statusCode, res) => {
+const sendToken = (login, statusCode, res) => {
 
     //Creating JWT Token
-    const token = vendor.getJwtToken();
+    const token = login.getJwtToken();
 
 
     //setting cookies
@@ -15,7 +15,7 @@ const sendToken = (vendor, statusCode, res) => {
     .json({
         success: true,
         token,
-        vendor
+        login
     })
 }
 

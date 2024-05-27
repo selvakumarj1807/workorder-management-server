@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const EnquiryModelSchema = new mongoose.Schema({
     year: {
-        type: Number,
+        type: String,
         required: [true, "Pls enter year"]
     },
     make: {
@@ -27,7 +27,7 @@ const EnquiryModelSchema = new mongoose.Schema({
         required: [true, "Pls enter mobile Number"]
     },
     postalCode: {
-        type: Number,
+        type: String,
         required: [true, "Pls enter postal code"]
     },
     shippingMethod: {
@@ -39,7 +39,7 @@ const EnquiryModelSchema = new mongoose.Schema({
                 'option-2',
                 'option-3',
             ],
-            message: "Pls Select Correct Method"
+            message: "Pls Select Correct shipping Method"
         }
     }, 
     state: {

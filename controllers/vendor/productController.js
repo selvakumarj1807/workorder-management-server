@@ -55,24 +55,31 @@ exports.getSingleProduct = async (req, res, next) => {
 
 //update product - /api/v1/product/:id
 exports.updateProduct = async (req, res, next) => {
-    let product = await Product.findById(req.params.id);
+    try {
+        let product = await Product.findById(req.params.id);
 
-    if (!product) {
-        return res.status(404).json({
+        if (!product) {
+            return res.status(404).json({
+                success: false,
+                message: "product not found"
+            });
+        }
+
+        product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true
+        })
+
+        res.status(200).json({
+            success: true,
+            product
+        })
+    } catch (error) {
+        return res.status(500).json({
             success: false,
-            message: "Product not found"
+            message: "Server Error"
         });
     }
-
-    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true
-    })
-
-    res.status(200).json({
-        success: true,
-        product
-    })
 }
 
 

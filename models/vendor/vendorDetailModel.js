@@ -70,6 +70,10 @@ const VendorDetailSchema = new mongoose.Schema({
     },
     upiId : {
         type:String
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now()
     }
 })
 
